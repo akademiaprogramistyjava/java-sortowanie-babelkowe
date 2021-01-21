@@ -1,4 +1,4 @@
-public class BubbleSort {
+public class BubbleSort1 {
     public static void main(String[] args) {
         int[] d = {3, 44, -1, -4, 111, 23, 55, 1441, 25};
 
