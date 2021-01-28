@@ -1,15 +1,22 @@
 public class BubbleSort1 {
     public static void main(String[] args) {
-        int[] d = {3, 44, -1, -4, 111, 23, 55, 1441, 25};
 
-        int n = d.length;
+        int n = 20000;
+        int[] d = new int[n];
 
-        // wyświetlenie
-        for (int number:d) {
-            System.out.println(number);
+        int min = 510;
+        int max = 5123;
+        for (int i = 0; i < d.length; i++) {
+            d[i] = (int)(Math.random() * (max - min + 1));
         }
 
+        // wyświetlenie
+//        for (int number:d) {
+//            System.out.println(number);
+//        }
+
         System.out.println("-------------------------");
+        long start = System.currentTimeMillis();
         // sortowanie
         for (int j = 0; j < n-1; j++){
             for(int i = 0; i < n-1; i++){
@@ -20,11 +27,14 @@ public class BubbleSort1 {
                 }
             }
         }
+        long stop = System.currentTimeMillis();
 
-        // wyświetlenie
-        for (int number:d) {
-            System.out.println(number);
-        }
+        System.out.println("Time: "+(stop - start));
+
+//        // wyświetlenie
+//        for (int number:d) {
+//            System.out.println(number);
+//        }
 
     }
 }
