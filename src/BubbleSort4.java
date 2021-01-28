@@ -1,4 +1,4 @@
-public class BubbleSort3 {
+public class BubbleSort4 {
     public static void main(String[] args) {
         int n = 20000;
         int[] d = new int[n];
@@ -12,23 +12,34 @@ public class BubbleSort3 {
         System.out.println("------------1 -------------");
         long start = System.currentTimeMillis();
         // sortowanie
-        for (int j = n - 2; j >= 0; j--) {
-            int p = 1;
-            for (int i = 0; i < j; i++) {
-                if (d[i] > d[i + 1]) {
-                    int tmp = d[i];
-                    d[i] = d[i + 1];
-                    d[i + 1] = tmp;
-                    p = 0;
+        int pmin = 0;
+        int pmax = n - 2;
+        int p;
+        do {
+            p = 0;
+            for (int i = pmin; i <= pmax; i++) {
+                if (d[i] <= d[i + 1]) {
+                    continue;
                 }
+                int tmp = d[i];
+                d[i] = d[i + 1];
+                d[i + 1] = tmp;
+
+                if (p == 0) {
+                    pmin = i;
+                }
+                p = i;
             }
-            if(p == 1){
-                break;
+            if (pmin > 1) {
+                pmin--;
             }
-        }
+            pmax = p - 1;
+        } while(p > 0);
         long stop = System.currentTimeMillis();
 
         System.out.println("Time: " + (stop - start));
+
+
 
     }
 }
